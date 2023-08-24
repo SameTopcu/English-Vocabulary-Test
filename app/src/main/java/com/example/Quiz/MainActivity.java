@@ -3,8 +3,11 @@ package com.example.Quiz;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -23,15 +26,14 @@ public class MainActivity extends AppCompatActivity {
     TextView soru;
     Button cevapA, cevapB, cevapC, cevapD;
     Button kaydet;
-    int miktar =24;
+    int miktar =80;
     int puan = 0;
     int toplamsorusayısı = Sorucevapclass.soru.length;
     int suankısoru;
     String secılencevap = "";
     int sayı;
     TextView zaman;
-
-
+    private DatabaseHelper dbHelper;
 
 
     @Override
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         cevapD = findViewById(R.id.Did);
         kaydet = findViewById(R.id.kaydet);
         zaman =findViewById(R.id.timeid);
-
         totalquestıon.setText("Toplam Mevcut Kelime Sayısı : " + toplamsorusayısı);
         FarklıRandomSayı();
         suankısoru=sayı;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Puanınız gösteriliyor..", Toast.LENGTH_SHORT).show();
                         fınıshquız();
 
+
                     }
                 });
                 alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
@@ -90,102 +92,7 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
-    /*public void onClick(View view) {
 
-        cevapA.setBackgroundColor(Color.WHITE);
-        cevapB.setBackgroundColor(Color.WHITE);
-        cevapC.setBackgroundColor(Color.WHITE);
-        cevapD.setBackgroundColor(Color.WHITE);
-
-        cevapA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cevapA.setBackgroundColor(Color.MAGENTA);
-                secılencevap=cevapA.getText().toString();
-
-                if(secılencevap.equals(Sorucevapclass.cevap[suankısoru])){
-                    puan+=5;
-                    Toast.makeText(MainActivity.this,"Doğru cevap",Toast.LENGTH_SHORT).show();
-                    FarklıRandomSayı();
-                    suankısoru=sayı;
-                    soruyukle();
-                }else{
-                    Toast.makeText(MainActivity.this,"Yanlış Cevap",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-        cevapB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cevapB.setBackgroundColor(Color.MAGENTA);
-                secılencevap=cevapB.getText().toString();
-
-                if(secılencevap.equals(Sorucevapclass.cevap[suankısoru])){
-                    puan+=5;
-                    Toast.makeText(MainActivity.this,"Doğru cevap",Toast.LENGTH_SHORT).show();
-                    FarklıRandomSayı();
-                    suankısoru=sayı;
-                    soruyukle();
-                }else{
-                    Toast.makeText(MainActivity.this,"Yanlış Cevap",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-        cevapC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cevapC.setBackgroundColor(Color.MAGENTA);
-                secılencevap=cevapC.getText().toString();
-
-                if(secılencevap.equals(Sorucevapclass.cevap[suankısoru])){
-                    puan+=5;
-                    Toast.makeText(MainActivity.this,"Doğru cevap",Toast.LENGTH_SHORT).show();
-                    FarklıRandomSayı();
-                    suankısoru=sayı;
-                    soruyukle();
-                }else{
-                    Toast.makeText(MainActivity.this,"Yanlış Cevap",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-        cevapD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cevapD.setBackgroundColor(Color.MAGENTA);
-                secılencevap=cevapA.getText().toString();
-
-                if(secılencevap.equals(Sorucevapclass.cevap[suankısoru])){
-                    puan+=5;
-                    Toast.makeText(MainActivity.this,"Doğru cevap",Toast.LENGTH_SHORT).show();
-                    FarklıRandomSayı();
-                    suankısoru=sayı;
-                    soruyukle();
-                }else{
-                    Toast.makeText(MainActivity.this,"Yanlış Cevap",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-        //Button clickedbutton = (Button) view;
-
-
-        //if (clickedbutton.getId() == R.id.kaydet) {
-
-          //  if (secılencevap.equals(Sorucevapclass.cevap[suankısoru])) {
-            //    puan += 5;
-            //}
-            //FarklıRandomSayı();
-            //suankısoru=sayı;
-            //soruyukle();
-
-
-        /*} else {
-            secılencevap = clickedbutton.getText().toString();
-            clickedbutton.setBackgroundColor(Color.MAGENTA);
-        }*/
 
     public void cevapAkontrol(View view)
     {
@@ -274,11 +181,12 @@ public class MainActivity extends AppCompatActivity {
             basarı = "BASARILI";
         } else {
             basarı = "BAŞARISIZ";
-
         }
+
         new AlertDialog.Builder(this)
                 .setTitle("Geçme Durumu "+basarı)
-                .setMessage("Puanın : " + puan)
+                .setMessage("Puanlar : " +puan)
+
                 .setPositiveButton("Tekrar Dene", ((dialogInterface, i) -> tekrar()))
                 .setNegativeButton("Uygulamadan Çık", (dialog,i) ->cıkıs() )
                 .setCancelable(false)
@@ -300,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         List<Integer> uretılensayılar = new ArrayList<Integer>();
         Random random = new Random();
         while (uretılensayılar.size() < miktar) {
-            int randomnumber = random.nextInt(45);
+            int randomnumber = random.nextInt(81);
 
             if (!uretılensayılar.contains(randomnumber)) {
                 uretılensayılar.add(randomnumber);
@@ -314,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
+
 
 }
 

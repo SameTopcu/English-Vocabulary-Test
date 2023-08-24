@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECCECE"
+    android:background="@drawable/backgorund"
     tools:context=".MainActivity">
 
 
@@ -28,8 +28,10 @@
 
         android:layout_marginTop="204dp"
         android:layout_marginBottom="61dp"
+        android:fontFamily="@font/lakki_reddy"
         android:text="SORU GELECEK :"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"

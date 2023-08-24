@@ -47,8 +47,49 @@ public class Sorucevapclass {
             "Belt",
             "Blanket",
             "Borrow",
-            "Bottle"
+            "Bottle",
             //HATASIZ//
+            "Call off",
+            "Captive",
+            "Cave",
+            "Charm",
+            "Chair",
+            "Cling",
+            //hatasız
+            "Decline",
+            "Delusion",
+            "Dent",
+            "Deportation",
+            "Desperately",
+            "Divorce",
+            "Dream",
+            //hatasız
+            "Enormous",
+            "Expect",
+            "Earn",
+            "Exile",
+            "Efficient",
+            "Emotion",
+            "Essay",
+            "Entertain",
+            "Eyelash",
+            //
+            "Favorable",
+            "Fall",
+            "Feasible",
+            "Fur",
+            "Fugitive",
+            "Fertile",
+            "Faint",
+            "Flu",
+            "Flaw",
+            "Fortunate",
+            //
+            "Gain",
+            "Gap",
+            "Generous",
+            "Grow"
+
     };
 
     public static String cevaplar[][]={
@@ -97,8 +138,48 @@ public class Sorucevapclass {
             {"Kemer","Takı","Kolye","Bileklik"},
             {"Ranza","Battaniye","Yatak","Yastık"},
             {"Herhangi Birşey Satmak","Birine Birşey Vermek","Satın Almak","Ödünç Almak/Borç Almak"},
-            {"Şişe","Kapak","Kutu","Tas"}
+            {"Şişe","Kapak","Kutu","Tas"},
             //HATASIZ//
+            {"İptal etmek","Başından savmak","Esir almak","Uzaklaştırmak"},
+            {"Kale","Değişik","Esir","Halı"},
+            {"Çene","Uzaylı","Alımlı","Mağara"},
+            {"Yazıcı","Alımlı/Sevimli","Kil","Mütevazi"},
+            {"Uyumsuz","Tablo","Sandalye","Anlaşmazlık"},
+            {"Yaratmak","Anlaşmak/Uzlaşmak","Yapışmak/Sarılmak","Çarpışmak/Çarpmak"},
+            //hatasız
+            {"Çıldırmak","Uzlaşmak","Reddetmek/Geri Çevirmek","Affetmek"},
+            {"Tahrip","Aldatma","Çöküntü","Hoş"},
+            {"Güvenilir/Emin","Defo","Tahrip","Çöküntü/Göçük"},
+            {"Hatasız","Umutsuz","Sürgün","Ayıp"},
+            {"Çılgınca","Sinirle","Utançla","Umutsuzca"},
+            {"Boşanma","Bozmak","İkilem","Çizim"},
+            {"Hayal","Çizim","Değerli","Cesur"},
+            //hatasız
+            {"Verimli","İlgi çekici değil","İdare eder","Muazzam"},
+            {"Ümit etmek","Çıkmak","Para Kazanmak","Doğuya Ait"},
+            {"Ümit Etmek","Yorgun Düşmek","İflas Etmek","Para Kazanmak"},
+            {"Sürgün","Hayat","Haricinde","Kulak"},
+            {"Eşit","Rapor","Acil","Verimli"},
+            {"Denk","Çılgın","Hüzün","Duygu"},
+            {"Masal","Hikaye","Makale","Öykü"},
+            {"Eğlendirmek","Affetmek","Sinirlendirmek","Gezdirmek"},
+            {"Göz","Göz Kalemi","Gözaltı","Kirpik"},
+            //
+            {"Kurbağa","Ateş","Balık","Olumlu"},
+            {"Kırılmak","Vurmak","Fırlatmak","Düşmek"},
+            {"Kolaylaştırılabilir","Kaçabilir","Yenilebilir","Mümkün/Yapılabilir"},
+            {"Kumaş","Silinmek","Ateş","Kürk"},
+            {"Kaçak","İflas Etmek","Sürgün","Yerlebir"},
+            {"Parmaklık","Hayati(önem)","Uyumlu","Bereketli"},
+            {"Uzlaşmak","Gerçeği Görmek","Ayılmak","Bayılmak"},
+            {"Mide ağrısı","Ateş(hastalık)","Öksürük","Grip"},
+            {"Lezzetsiz","Lezzet","Kusursuz","Kusur"},
+            {"Lezzet","Parmak","Dayanıksız/Çürük","Minnettar"},
+            //
+            {"Almak","Elinden Kaçırmak","Uçmak","Kazanmak"},
+            {"Hakiki/Gerçek","Deha/Dahi","Cömert","Boşluk/Fark"},
+            {"Korumak","Damat","Misafir","Cömert"},
+            {"Yer çekimi","Büyümek","Korumak","Elde etmek"}
 
 
 
@@ -151,8 +232,48 @@ public class Sorucevapclass {
             "Kemer",
             "Battaniye",
             "Ödünç Almak/Borç Almak",
-            "Şişe"
+            "Şişe",
             //HATASIZ//
+            "İptal etmek",
+            "Esir",
+            "Mağara",
+            "Alımlı/Sevimli",
+            "Anlaşmazlık",
+            "Yapışmak/Sarılmak",
+            // hatasız
+            "Reddetmek/Geri Çevirmek",
+            "Aldatma",
+            "Çöküntü/Göçük",
+            "Sürgün",
+            "Umutsuzca",
+            "Boşanma",
+            "Hayal",
+            //hatasız
+            "Muazzam",
+            "Ümit etmek",
+            "Para Kazanmak",
+            "Sürgün",
+            "Verimli",
+            "Duygu",
+            "Makale",
+            "Eğlendirmek",
+            "Kirpik",
+            //
+            "Olumlu",
+            "Düşmek",
+            "Mümkün/Yapılabilir",
+            "Kürk",
+            "Kaçak",
+            "Bereketli",
+            "Bayılmak",
+            "Grip",
+            "Kusur",
+            "Minnettar",
+            //
+            "Kazanmak",
+            "Boşluk/Fark",
+            "Cömert",
+            "Büyümek"
 
 
     };
